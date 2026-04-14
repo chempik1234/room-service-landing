@@ -50,6 +50,11 @@
                         <a class="nav-link" href="#quickstart">Quick Start</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="https://your-username.github.io/room-service-control/" target="_blank">
+                            <i class="bi bi-speedometer2 me-1"></i> Control Panel
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link btn btn-primary ms-lg-3" href="https://github.com/chempik1234/room-service">
                             <i class="bi bi-github me-1"></i> GitHub
                         </a>
@@ -81,22 +86,6 @@
                             <a href="https://github.com/chempik1234/room-service" class="btn btn-outline-light btn-lg">
                                 <i class="bi bi-github me-2"></i> Self-Host
                             </a>
-                        </div>
-                        <div class="hero-stats">
-                            <div class="row text-center">
-                                <div class="col-4">
-                                    <div class="stat-value">&lt;2min</div>
-                                    <div class="stat-label">Setup Time</div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="stat-value">100%</div>
-                                    <div class="stat-label">Type Safe</div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="stat-value">&lt;50ms</div>
-                                    <div class="stat-label">Latency</div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -451,10 +440,22 @@ room.on(<span class="code-string">'userJoined'</span>, (user) => {
                             </div>
                         </form>
 
-                        <div id="api-response" class="alert alert-success d-none">
-                            <strong>🎉 Your RoomService is ready!</strong><br>
-                            API Key: <code id="api-key-display">rs_live_***</code><br>
-                            <small>Check your email for setup instructions!</small>
+                        <div id="api-response" class="alert alert-info d-none">
+                            <div id="redirect-message">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="spinner-border spinner-border-sm me-3" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <strong>🚀 Redirecting to Control Panel...</strong>
+                                </div>
+                                <p class="mb-0">You're being redirected to our management dashboard where you can create your tenant and get your API key.</p>
+                                <p class="mb-0 mt-2"><small>If you're not redirected automatically, <a href="https://your-username.github.io/room-service-control/" class="alert-link">click here</a>.</small></p>
+                            </div>
+                            <div id="api-key-display-section" class="d-none">
+                                <strong>🎉 Your RoomService is ready!</strong><br>
+                                API Key: <code id="api-key-display">rs_live_***</code><br>
+                                <small>Check your email for setup instructions!</small>
+                            </div>
                         </div>
 
                         <h5 class="mt-4 mb-3">Or Use the Self-Hosted Version:</h5>

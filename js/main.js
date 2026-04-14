@@ -28,49 +28,36 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Signup form handler
+// Signup form handler - redirects to control panel
 document.getElementById('signup-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Simulate API call
+    // Get form data
     const formData = new FormData(this);
     const name = formData.get('name') || this.querySelector('input[type="text"]').value;
     const email = formData.get('email') || this.querySelector('input[type="email"]').value;
 
-    // Generate mock API key
-    const tenantId = 'tenant_' + Math.random().toString(36).substring(2, 6);
-    const apiKey = 'rs_live_' + tenantId + '_' + Math.random().toString(36).substring(2, 10);
+    // Store signup data for the control panel
+    sessionStorage.setItem('signupName', name);
+    sessionStorage.setItem('signupEmail', email);
 
-    // Show success message
+    // Show redirect message
     const responseDiv = document.getElementById('api-response');
+    const redirectMessage = document.getElementById('redirect-message');
     const apiKeyDisplay = document.getElementById('api-key-display');
 
+    // Hide the API key display and show redirect message
+    apiKeyDisplay.parentElement.classList.add('d-none');
+
+    // Update the response div with redirect information
     responseDiv.classList.remove('d-none');
-    apiKeyDisplay.textContent = apiKey;
 
-    // Hide form
-    this.style.display = 'none';
-
-    // In real implementation, this would make an API call:
-    /*
-    fetch('/api/tenants', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email })
-    })
-    .then(response => response.json())
-    .then(data => {
-        apiKeyDisplay.textContent = data.api_key;
-        responseDiv.classList.remove('d-none');
-        this.style.display = 'none';
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Failed to create tenant. Please try again.');
-    });
-    */
+    // Redirect to control panel after a brief delay
+    setTimeout(() => {
+        // Replace with your actual control panel URL
+        const controlPanelUrl = 'https://your-username.github.io/room-service-control/';
+        window.location.href = controlPanelUrl;
+    }, 2000);
 });
 
 // Intersection Observer for fade-in animations
