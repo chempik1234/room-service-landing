@@ -28,37 +28,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Signup form handler - redirects to control panel
-document.getElementById('signup-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Get form data
-    const formData = new FormData(this);
-    const name = formData.get('name') || this.querySelector('input[type="text"]').value;
-    const email = formData.get('email') || this.querySelector('input[type="email"]').value;
-
-    // Store signup data for the control panel
-    sessionStorage.setItem('signupName', name);
-    sessionStorage.setItem('signupEmail', email);
-
-    // Show redirect message
-    const responseDiv = document.getElementById('api-response');
-    const redirectMessage = document.getElementById('redirect-message');
-    const apiKeyDisplay = document.getElementById('api-key-display');
-
-    // Hide the API key display and show redirect message
-    apiKeyDisplay.parentElement.classList.add('d-none');
-
-    // Update the response div with redirect information
-    responseDiv.classList.remove('d-none');
-
-    // Redirect to control panel after a brief delay
-    setTimeout(() => {
-        // Replace with your actual control panel URL
-        const controlPanelUrl = 'https://your-username.github.io/room-service-control/';
-        window.location.href = controlPanelUrl;
-    }, 2000);
-});
+// No form handling needed - users go directly to control panel
 
 // Intersection Observer for fade-in animations
 const observerOptions = {

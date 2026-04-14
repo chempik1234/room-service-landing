@@ -463,6 +463,34 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
+/* Step Numbers for Instructions */
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+}
+
+.cta-section .btn {
+    font-weight: 600;
+    text-transform: none;
+}
+
 /* Responsive Design */
 @media (max-width: 991px) {
     .hero-section h1 {

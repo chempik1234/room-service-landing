@@ -422,39 +422,51 @@ room.on(<span class="code-string">'userJoined'</span>, (user) => {
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <div class="quickstart-card">
-                        <h4 class="mb-4">Get Your API Key</h4>
+                        <h4 class="mb-4">🚀 Get Started with RoomService</h4>
 
-                        <form id="signup-form">
-                            <div class="row g-3 mb-4">
-                                <div class="col-md-5">
-                                    <input type="text" class="form-control" placeholder="Your Name" required>
-                                </div>
-                                <div class="col-md-5">
-                                    <input type="email" class="form-control" placeholder="email@example.com" required>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="submit" class="btn btn-primary w-100">
-                                        <i class="bi bi-lightning-charge me-1"></i> Get Key
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-
-                        <div id="api-response" class="alert alert-info d-none">
-                            <div id="redirect-message">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="spinner-border spinner-border-sm me-3" role="status">
-                                        <span class="visually-hidden">Loading...</span>
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h6 class="mb-3">Create your free account in 3 simple steps:</h6>
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="step-number">1</div>
+                                    <div class="ms-3">
+                                        <strong>Open Control Panel</strong>
+                                        <p class="text-muted mb-0 small">Access our management dashboard to create your account</p>
                                     </div>
-                                    <strong>🚀 Redirecting to Control Panel...</strong>
                                 </div>
-                                <p class="mb-0">You're being redirected to our management dashboard where you can create your tenant and get your API key.</p>
-                                <p class="mb-0 mt-2"><small>If you're not redirected automatically, <a href="https://your-username.github.io/room-service-control/" class="alert-link">click here</a>.</small></p>
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="step-number">2</div>
+                                    <div class="ms-3">
+                                        <strong>Sign Up & Create Tenant</strong>
+                                        <p class="text-muted mb-0 small">Just enter your name and email - we'll handle the rest</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="step-number">3</div>
+                                    <div class="ms-3">
+                                        <strong>Get Your API Key</strong>
+                                        <p class="text-muted mb-0 small">Instant API key generation, ready to use in your app</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="api-key-display-section" class="d-none">
-                                <strong>🎉 Your RoomService is ready!</strong><br>
-                                API Key: <code id="api-key-display">rs_live_***</code><br>
-                                <small>Check your email for setup instructions!</small>
+                            <div class="col-md-4 text-center">
+                                <div class="cta-section">
+                                    <p class="mb-3"><strong>Ready to get started?</strong></p>
+                                    <a href="https://your-username.github.io/room-service-control/" class="btn btn-primary btn-lg w-100 mb-2">
+                                        <i class="bi bi-speedometer2 me-2"></i>Open Control Panel
+                                    </a>
+                                    <p class="text-muted small mb-0">Free account • No credit card required</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mt-4 mb-0">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill me-2 mt-1"></i>
+                                <div>
+                                    <strong>New: Self-Service Control Panel!</strong>
+                                    <p class="mb-0 small">Create your account, manage tenants, and get API keys instantly - all from our web interface. No manual setup required!</p>
+                                </div>
                             </div>
                         </div>
 
