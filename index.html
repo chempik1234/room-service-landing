@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoomService - Real-Time Room Management for Frontend Developers</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Open Graph / SEO -->
+    <meta name="description" content="RoomService - Real-time room management for frontend developers. Self-hosted or SaaS.">
+    <meta name="keywords" content="real-time, websocket, grpc, room management, frontend, backend">
+    <meta name="author" content="chempik1234">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-hdd-network me-2"></i>
+                RoomService
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#options">Options</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#quickstart">Quick Start</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary ms-lg-3" href="https://github.com/chempik1234/room-service">
+                            <i class="bi bi-github me-1"></i> GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <span class="badge bg-primary mb-3">For Frontend Developers</span>
+                        <h1 class="display-3 fw-bold mb-4">
+                            Real-Time Room Management <br>
+                            <span class="text-primary">Without the Backend Hassle</span>
+                        </h1>
+                        <p class="lead mb-4">
+                            Build multiplayer games, collaborative apps, and real-time dashboards in minutes, not weeks.
+                            Focus on your frontend, we'll handle the infrastructure.
+                        </p>
+                        <div class="d-flex gap-3 mb-4">
+                            <a href="#quickstart" class="btn btn-primary btn-lg">
+                                <i class="bi bi-rocket me-2"></i> Get Started Free
+                            </a>
+                            <a href="https://github.com/chempik1234/room-service" class="btn btn-outline-light btn-lg">
+                                <i class="bi bi-github me-2"></i> Self-Host
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <div class="stat-value">&lt;2min</div>
+                                    <div class="stat-label">Setup Time</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-value">100%</div>
+                                    <div class="stat-label">Type Safe</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-value">&lt;50ms</div>
+                                    <div class="stat-label">Latency</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-code">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <pre class="mb-0"><code class="language-javascript"><span class="code-comment">// Install SDK</span>
+<span class="code-keyword">npm</span> install @roomservice/sdk
+
+<span class="code-comment">// Connect and create room</span>
+<span class="code-keyword">import</span> { RoomService } <span class="code-keyword">from</span> <span class="code-string">'@roomservice/sdk'</span>
+
+<span class="code-keyword">const</span> client = <span class="code-keyword">new</span> RoomService({
+  apiKey: <span class="code-string">'rs_live_your_key'</span>
+})
+
+<span class="code-comment">// Create real-time room</span>
+<span class="code-keyword">const</span> room = <span class="code-keyword">await</span> client.createRoom({
+  maxUsers: <span class="code-number">10</span>
+})
+
+<span class="code-comment">// Join and start streaming</span>
+<span class="code-keyword">await</span> room.join({ id: <span class="code-string">'user123'</span> })
+room.on(<span class="code-string">'userJoined'</span>, (user) => {
+  console.log(<span class="code-string">`</span><span class="code-string">${user.name}</span><span class="code-string"> joined!</span><span class="code-string">`</span>)
+})</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary mb-3">Features</span>
+                <h2 class="display-5 fw-bold mb-3">Everything You Need for Real-Time Apps</h2>
+                <p class="lead text-muted">Built by frontend developers, for frontend developers</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+                        <h4>Blazing Fast Setup</h4>
+                        <p>Get started in under 2 minutes. No backend configuration needed. Just install the SDK and start building.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <h4>Room-Based Architecture</h4>
+                        <p>Designed for rooms: game lobbies, meeting rooms, collaborative spaces. Not generic document stores.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-arrow-repeat"></i>
+                        </div>
+                        <h4>Real-Time Sync</h4>
+                        <p>Bi-directional gRPC streams for instant updates. No polling, no Webhooks complexity.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4>Type-Safe SDK</h4>
+                        <p>Full TypeScript support with auto-completion. Catch errors at compile time, not runtime.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-diagram-2"></i>
+                        </div>
+                        <h4>Flexible Data Model</h4>
+                        <p>Store any JSON data: lists, maps, nested objects. Perfect for game state, documents, or custom data.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4>User Presence</h4>
+                        <p>Built-in user management. Join/leave rooms, track presence, handle disconnections gracefully.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Options Section -->
+    <section id="options" class="options-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary mb-3">Choose Your Path</span>
+                <h2 class="display-5 fw-bold mb-3">Self-Hosted or SaaS?</h2>
+                <p class="lead text-muted">Both options give you the same powerful API. Choose what works for you.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Self-Hosted Option -->
+                <div class="col-lg-6">
+                    <div class="option-card self-hosted">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <i class="bi bi-server"></i>
+                            </div>
+                            <div>
+                                <h3>Self-Hosted</h3>
+                                <p class="text-muted mb-0">Complete control, zero dependency</p>
+                            </div>
+                        </div>
+
+                        <div class="option-body">
+                            <h5>Perfect for:</h5>
+                            <ul>
+                                <li>Complete data ownership</li>
+                                <li>Custom deployments</li>
+                                <li>Air-gapped environments</li>
+                                <li>Maximum flexibility</li>
+                            </ul>
+
+                            <h5>What you get:</h5>
+                            <ul>
+                                <li>✅ Full source code</li>
+                                <li>✅ Docker deployment</li>
+                                <li>✅ MongoDB + Redis</li>
+                                <li>✅ gRPC API</li>
+                                <li>✅ Complete documentation</li>
+                            </ul>
+
+                            <div class="option-tech">
+                                <span class="badge bg-dark">Go</span>
+                                <span class="badge bg-dark">MongoDB</span>
+                                <span class="badge bg-dark">Redis</span>
+                                <span class="badge bg-dark">Docker</span>
+                            </div>
+                        </div>
+
+                        <div class="option-footer">
+                            <div class="option-price">
+                                <span class="price">Free</span>
+                                <span class="price-label">Open Source</span>
+                            </div>
+                            <a href="https://github.com/chempik1234/room-service" class="btn btn-outline-dark">
+                                <i class="bi bi-github me-2"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SaaS Option -->
+                <div class="col-lg-6">
+                    <div class="option-card saas">
+                        <div class="badge bg-primary position-absolute top-0 end-0 m-3">Recommended</div>
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div>
+                                <h3>SaaS Platform</h3>
+                                <p class="text-muted mb-0">Zero infrastructure, instant scale</p>
+                            </div>
+                        </div>
+
+                        <div class="option-body">
+                            <h5>Perfect for:</h5>
+                            <ul>
+                                <li>Rapid prototyping</li>
+                                <li>No DevOps resources</li>
+                                <li>Focus on frontend</li>
+                                <li>Automatic scaling</li>
+                            </ul>
+
+                            <h5>What you get:</h5>
+                            <ul>
+                                <li>✅ Instant provisioning</li>
+                                <li>✅ Automatic HTTPS</li>
+                                <li>✅ Built-in monitoring</li>
+                                <li>✅ DDoS protection</li>
+                                <li>✅ Usage-based billing</li>
+                            </ul>
+
+                            <div class="option-tech">
+                                <span class="badge bg-primary">Managed</span>
+                                <span class="badge bg-primary">Auto-Scale</span>
+                                <span class="badge bg-primary">HTTPS</span>
+                                <span class="badge bg-primary">Monitoring</span>
+                            </div>
+                        </div>
+
+                        <div class="option-footer">
+                            <div class="option-price">
+                                <span class="price">Free</span>
+                                <span class="price-label">to start</span>
+                            </div>
+                            <a href="#pricing" class="btn btn-primary">
+                                Get Started <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary mb-3">Pricing</span>
+                <h2 class="display-5 fw-bold mb-3">Simple, Transparent Pricing</h2>
+                <p class="lead text-muted">Start free, scale as you grow</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Free Tier -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>Free</h4>
+                            <div class="price">
+                                $0<span class="period">/month</span>
+                            </div>
+                            <p class="text-muted">Perfect for testing and small projects</p>
+                        </div>
+
+                        <div class="pricing-body">
+                            <ul>
+                                <li><i class="bi bi-check2"></i> 100 concurrent users</li>
+                                <li><i class="bi bi-check2"></i> 50 active rooms</li>
+                                <li><i class="bi bi-check2"></i> 10,000 commands/month</li>
+                                <li><i class="bi bi-check2"></i> Community support</li>
+                                <li><i class="bi bi-check2"></i> 7-day data retention</li>
+                            </ul>
+                        </div>
+
+                        <div class="pricing-footer">
+                            <a href="#quickstart" class="btn btn-outline-primary">Get Started Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro Tier -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card popular">
+                        <div class="badge bg-primary position-absolute top-0 end-0 m-3">Most Popular</div>
+                        <div class="pricing-header">
+                            <h4>Pro</h4>
+                            <div class="price">
+                                $49<span class="period">/month</span>
+                            </div>
+                            <p class="text-muted">For production applications</p>
+                        </div>
+
+                        <div class="pricing-body">
+                            <ul>
+                                <li><i class="bi bi-check2"></i> 1,000 concurrent users</li>
+                                <li><i class="bi bi-check2"></i> 500 active rooms</li>
+                                <li><i class="bi bi-check2"></i> 100,000 commands/month</li>
+                                <li><i class="bi bi-check2"></i> Email support</li>
+                                <li><i class="bi bi-check2"></i> 30-day data retention</li>
+                                <li><i class="bi bi-check2"></i> Custom subdomain</li>
+                            </ul>
+                        </div>
+
+                        <div class="pricing-footer">
+                            <a href="#quickstart" class="btn btn-primary">Start Pro Trial</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Tier -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>Enterprise</h4>
+                            <div class="price">
+                                Custom
+                            </div>
+                            <p class="text-muted">For large-scale applications</p>
+                        </div>
+
+                        <div class="pricing-body">
+                            <ul>
+                                <li><i class="bi bi-check2"></i> Unlimited users & rooms</li>
+                                <li><i class="bi bi-check2"></i> Unlimited commands</li>
+                                <li><i class="bi bi-check2"></i> Priority support</li>
+                                <li><i class="bi bi-check2"></i> 90-day data retention</li>
+                                <li><i class="bi bi-check2"></i> Custom domain</li>
+                                <li><i class="bi bi-check2"></i> SLA guarantee</li>
+                            </ul>
+                        </div>
+
+                        <div class="pricing-footer">
+                            <a href="mailto:enterprise@roomservice.io" class="btn btn-outline-dark">Contact Sales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quickstart" class="quickstart-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary mb-3">Quick Start</span>
+                <h2 class="display-5 fw-bold mb-3">Up and Running in 2 Minutes</h2>
+                <p class="lead text-muted">No backend configuration required</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="quickstart-card">
+                        <h4 class="mb-4">Get Your API Key</h4>
+
+                        <form id="signup-form">
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="email" class="form-control" placeholder="email@example.com" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="bi bi-lightning-charge me-1"></i> Get Key
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="api-response" class="alert alert-success d-none">
+                            <strong>🎉 Your RoomService is ready!</strong><br>
+                            API Key: <code id="api-key-display">rs_live_***</code><br>
+                            <small>Check your email for setup instructions!</small>
+                        </div>
+
+                        <h5 class="mt-4 mb-3">Or Use the Self-Hosted Version:</h5>
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <pre class="mb-0"><code class="language-bash"><span class="code-comment"># Clone the repository</span>
+git clone https://github.com/chempik1234/room-service.git
+<span class="code-keyword">cd</span> room-service
+
+<span class="code-comment"># Start with Docker Compose</span>
+docker-compose up -d
+
+<span class="code-comment"># Your RoomService is running!</span>
+<span class="code-comment"># Accessible at: localhost:50050</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="text-white mb-3">
+                        <i class="bi bi-hdd-network me-2"></i>RoomService
+                    </h4>
+                    <p class="text-white-50">Real-time room management for frontend developers. Build multiplayer games, collaborative apps, and real-time dashboards.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/chempik1234/room-service" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#options">Options</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#quickstart">Quick Start</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">SDK Guide</a></li>
+                        <li><a href="#">Examples</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Community</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">License</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 mb-0">&copy; 2024 RoomService. Built with ❤️ for frontend developers.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-white-50 mb-0">Made with Bootstrap 5 & TypeScript</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
