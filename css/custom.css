@@ -23,6 +23,25 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
+    color: #334155; /* Dark text for light backgrounds */
+}
+
+/* Light text for dark backgrounds */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section h4,
+.hero-section h5,
+.hero-section h6,
+.options-section h2,
+.options-section h3,
+.options-section h4,
+.options-section h5,
+.quickstart-section h2,
+.quickstart-section h3,
+.quickstart-section h4,
+.quickstart-section h5 {
+    color: var(--text-primary);
 }
 
 /* Navigation */
@@ -168,6 +187,14 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #f8fafc;
 }
 
+.features-section h2 {
+    color: var(--dark-bg);
+}
+
+.features-section .text-muted {
+    color: #64748b !important;
+}
+
 .feature-card {
     background: white;
     border: 1px solid #e2e8f0;
@@ -202,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-card p {
-    color: var(--text-secondary);
+    color: #64748b;
     line-height: 1.6;
 }
 
@@ -210,6 +237,14 @@ h1, h2, h3, h4, h5, h6 {
 .options-section {
     background-color: var(--dark-bg);
     position: relative;
+}
+
+.options-section h2 {
+    color: var(--text-primary);
+}
+
+.options-section .text-muted {
+    color: var(--text-secondary) !important;
 }
 
 .option-card {
@@ -385,6 +420,14 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--dark-bg);
 }
 
+.quickstart-section h2 {
+    color: var(--text-primary);
+}
+
+.quickstart-section .text-muted {
+    color: var(--text-secondary) !important;
+}
+
 .quickstart-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -395,6 +438,11 @@ h1, h2, h3, h4, h5, h6 {
 .quickstart-card h4 {
     color: var(--text-primary);
     margin-bottom: 1.5rem;
+}
+
+.quickstart-card h6,
+.quickstart-card strong {
+    color: var(--text-primary);
 }
 
 .terminal-window {
@@ -490,6 +538,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 1rem;
     padding: 1.5rem;
     border: 2px solid #e2e8f0;
+}
+
+.cta-section p,
+.cta-section strong {
+    color: var(--dark-bg);
 }
 
 .cta-section .btn {
@@ -603,4 +656,23 @@ html {
 .options-section .text-muted,
 .quickstart-section .text-muted {
     color: var(--text-secondary) !important;
+}
+
+/* Ensure proper text colors in different sections */
+.hero-section .lead,
+.options-section .lead,
+.quickstart-section .lead {
+    color: var(--text-secondary);
+}
+
+/* Features section - light background, dark text */
+.features-section h2,
+.features-section h3,
+.features-section h4,
+.features-section h5 {
+    color: var(--dark-bg);
+}
+
+.features-section .text-muted {
+    color: #64748b !important;
 }
