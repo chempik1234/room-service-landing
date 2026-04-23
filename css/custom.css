@@ -37,6 +37,12 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary) !important;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    border-radius: 4px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
