@@ -552,3 +552,30 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color);
 }
+
+/* Hide pricing/payment information - billing not implemented yet */
+/* Hide Pricing navigation link */
+.nav-link[href="#pricing"],
+.footer ul li a[href="#pricing"] {
+    display: none !important;
+}
+
+/* Hide entire Pricing section */
+#pricing {
+    display: none !important;
+}
+
+/* Hide pricing-related content in SaaS option card */
+.option-card.saas .option-price {
+    display: none !important;
+}
+
+/* Hide the "Get Started" button in SaaS card that links to pricing */
+.option-card.saas .btn[href="#pricing"] {
+    display: none !important;
+}
+
+/* Hide "Usage-based billing" mention in SaaS card */
+.hidden-billing {
+    display: none !important;
+}
